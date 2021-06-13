@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "995196680907",
+"firebase_url": "https://kiet-quiz-app-default-rtdb.firebaseio.com/",
+    "project_id": "kiet-quiz-app",
+    "storage_bucket": "kiet-quiz-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995196680907:android:fe327eb74332bd0b3ff94e",
+        "android_client_info": {
+          "package_name": "com.aakash.quizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995196680907-2am9dhfbebfecq7o2dikgn93v31naf22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvWW3D4wXrDrAyDxRAB00TA5u_1PuJnhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995196680907-2am9dhfbebfecq7o2dikgn93v31naf22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

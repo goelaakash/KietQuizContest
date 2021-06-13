@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_weight="0.3"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/above" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:id="@+id/tv_register"
+            android:background="@color/white"
+            android:text="NOT A MEMBER? REGISTER"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="0.7"
+            android:scaleType="fitXY"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/below" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Welcome"
+        android:textAllCaps="true"
+        android:id="@+id/tv_welcome"
+        android:textColor="@color/blue"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="nice to see you"
+        android:id="@+id/tv_nicetosee"
+        android:textAllCaps="true"
+        android:layout_below="@+id/tv_welcome"
+        android:textColor="#C0C0C0"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttonround"
+        android:text="login"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textAllCaps="true"
+        android:id="@+id/btn_login"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:focusable="true"
+        android:layout_below="@+id/tv_nicetosee"
+        android:textColor="#C0C0C0"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+
+
+</RelativeLayout>
