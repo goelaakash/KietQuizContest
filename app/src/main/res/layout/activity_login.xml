@@ -26,12 +26,14 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 app:cardCornerRadius="10dp"
+
                 android:layout_margin="10dp"
                 android:padding="10dp"
                 android:layout_height="match_parent">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:background="@drawable/profilebg"
                     android:layout_height="wrap_content">
 
 

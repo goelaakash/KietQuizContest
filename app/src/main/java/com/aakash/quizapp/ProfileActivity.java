@@ -210,16 +210,11 @@ public class ProfileActivity extends AppCompatActivity {
             gender=spinner.getSelectedItem().toString();
             final UserList userList = new UserList(username, currentUser, gender,"null",firebaseAuth.getCurrentUser().getEmail());
 
-            rootRef.child("Status").child(currentUser).setValue(userList).addOnCompleteListener(new OnCompleteListener<Void>() {
+            rootRef.child("Users").child(currentUser).setValue(userList).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    rootRef.child("Users").child(currentUser).setValue(userList).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            startActivity(new Intent(ProfileActivity.this,HomeActivity.class));
-                            finish();
-                        }
-                    });
+                    startActivity(new Intent(ProfileActivity.this,HomeActivity.class));
+                    finish();
                 }
             });
 

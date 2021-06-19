@@ -17,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     Button b1;
     FirebaseAuth auth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,14 @@ public class HomeActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.feed_toolbar);
         setSupportActionBar(toolbar);
+
+        b1=findViewById(R.id.btn_quiz);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,CategoryActivity.class));
+            }
+        });
 
 
     }
