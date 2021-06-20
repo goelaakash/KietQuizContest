@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aakash.quizapp.Models.Questions;
+import com.aakash.quizapp.Utils.Internet;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,6 +73,12 @@ public class QuizActivity extends AppCompatActivity {
         progressDialog.show();
 
         questions =new ArrayList<>();
+
+        if(!Internet.haveNetwork(QuizActivity.this)){
+            progressDialog.dismiss();
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            finish();
+        }
         loaddata();
 
         bookmark.setOnClickListener(new View.OnClickListener() {
