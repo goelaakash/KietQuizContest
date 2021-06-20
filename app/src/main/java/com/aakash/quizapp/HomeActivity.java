@@ -10,11 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.aakash.quizapp.Models.Questions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button b1;
+    Button b1,b2;
     FirebaseAuth auth;
 
 
@@ -27,12 +30,33 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         b1=findViewById(R.id.btn_quiz);
+        b2=findViewById(R.id.btn_bookmark);
+
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this,CategoryActivity.class));
             }
         });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,BookmarksActivity.class));
+            }
+        });
+
+        Questions questions = new Questions("Q10. What will the result of len variable after execution of the following statements?\n" +
+                "1.\tint len;  \n" +
+                "2.\tchar str1[] = {\"39 march road\"};  \n" +
+                "3.\tlen = strlen(str1);  \n"
+,"A. 11","B. 12","C. 13","D. 14","C","10");
+
+
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Quiz");
+        reference.child("CLanguage").child("10").setValue(questions);
 
 
     }

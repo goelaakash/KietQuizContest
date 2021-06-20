@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Tetsing"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tv_category"
+            android:layout_width="match_parent"
+            android:text="Question"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_option1"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tv_question"
+            android:layout_width="match_parent"
+            android:text="option1"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_option2"
+            android:layout_below="@+id/tv_option1"
+            android:layout_width="match_parent"
+            android:text="Tetsing"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_option3"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tv_option2"
+            android:layout_width="match_parent"
+            android:text="Tetsing"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_option4"
+            android:layout_below="@+id/tv_option3"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:text="Tetsing"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_anser"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_option4"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:text="Tetsing"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/img_delete"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/tv_anser"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="3dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

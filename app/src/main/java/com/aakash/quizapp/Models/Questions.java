@@ -9,17 +9,37 @@ public class Questions {
     String option4;
     String answer;
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    String category;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    String id;
+
     public Questions(){
 
     }
 
-    public Questions(String quest,String option1,String option2,String option3,String option4,String answer){
+    public Questions(String quest,String option1,String option2,String option3,String option4,String answer,String id){
         this.quest =quest;
         this.option1 = option1;
         this.option2 =option2;
         this.option3 = option3;
         this.option4 = option4;
         this.answer =answer;
+        this.id=id;
 
     }
 

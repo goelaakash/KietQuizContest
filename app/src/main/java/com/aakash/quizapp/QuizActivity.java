@@ -1,11 +1,13 @@
 package com.aakash.quizapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aakash.quizapp.Models.Questions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,7 +36,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private List<Questions> questions;
     ProgressDialog progressDialog;
-    Button next;
+    Button next,bookmark;
 
     int i =0;
     int score=0;
@@ -57,6 +62,7 @@ public class QuizActivity extends AppCompatActivity {
         opt4 = findViewById(R.id.card_option4);
 
         next = findViewById(R.id.btn_next);
+        bookmark =findViewById(R.id.btn_book);
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("Loading You Quiz");
@@ -67,6 +73,25 @@ public class QuizActivity extends AppCompatActivity {
 
         questions =new ArrayList<>();
         loaddata();
+
+        bookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                DatabaseReference reference  = FirebaseDatabase.getInstance().getReference("Bookmarks");
+                reference.child(firebaseAuth.getUid()).child(type).child(questions.get(i).getId()).setValue(questions.get(i)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(QuizActivity.this, "Bookmark Added", Toast.LENGTH_LONG).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(QuizActivity.this, "Bookmark Failed to Add", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
 
         opt1.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
@@ -231,5 +256,27 @@ public class QuizActivity extends AppCompatActivity {
         option3.setText(questions.get(i).getOption3());
         option4.setText(questions.get(i).getOption4());
         ans = questions.get(i).getAnswer();
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
+        builder.setMessage("Are you Sure you Want to leave the Quiz");
+        builder.setCancelable(true);
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                //Toast.makeText(MainActivity.this, "Check your Internet Connection", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
